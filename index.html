@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1730">
+  <meta name="description" content="VERTEX — projeto de mobilidade assistiva controlada por interface cérebro-máquina.">
+  <title>VERTEX | Mobilidade Inteligente</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar" id="sidebar">
+
+      <a class="brand" href="#" aria-label="VERTEX início" data-page="inicio">
+        <span class="brand-symbol">V</span>
+        <span>
+          <strong>VERTEX</strong>
+          <small>INTELLIGENT MOBILITY</small>
+        </span>
+      </a>
+
+      <div class="menu-label">MENU PRINCIPAL</div>
+
+      <nav class="navigation" aria-label="Navegação principal">
+        <button class="nav-item active" data-page="inicio">
+          <span>⌂</span> Início
+        </button>
+
+        <button class="nav-item" data-page="rotas">
+          <span>⌖</span> Rotas e GPS
+        </button>
+
+        <button class="nav-item" data-page="bateria">
+          <span>▰</span> Bateria
+        </button>
+
+        <button class="nav-item" data-page="historico">
+          <span>◷</span> Histórico
+        </button>
+
+        <button class="nav-item" data-page="sobre">
+          <span>◇</span> Quem somos
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="connection-dot"></div>
+        <div>
+          <strong>VERTEX System</strong>
+          <small id="connectionText">Modo demonstração</small>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+      <!-- CABEÇALHO -->
+      <header class="topbar">
+
+        <button
+          class="icon-button mobile-menu"
+          id="menuToggle"
+          aria-label="Abrir menu">
+          ☰
+        </button>
+
+        <div class="page-heading">
+          <span class="eyebrow">
+            SISTEMA DE MOBILIDADE ASSISTIVA
+          </span>
+          <h1 id="pageTitle">Painel principal</h1>
+        </div>
+
+        <div class="topbar-actions">
+
+          <span class="system-status">
+            <span class="status-dot"></span>
+            <span id="systemStatus">Demonstração</span>
+          </span>
+
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Alternar tema">
+            <span id="themeIcon">☾</span>
+            <span id="themeLabel">Modo claro</span>
+          </button>
+
+        </div>
+      </header>
+
+      <div class="page-container">
+
+        <!-- ================================= -->
+        <!-- TELA 1: INÍCIO                    -->
+        <!-- ================================= -->
+
+        <section class="page active" id="inicio">
+
+          <div class="welcome-row">
+            <div>
+              <p class="muted">
+                TECNOLOGIA A FAVOR DA AUTONOMIA
+              </p>
+
+              <h2>
+                O futuro da mobilidade começa aqui.
+              </h2>
+
+              <p class="muted">
+                Acompanhe sua cadeira e explore os recursos do VERTEX.
+              </p>
+            </div>
+
+            <span class="version-tag">
+              TCC • PROTÓTIPO
+            </span>
+          </div>
+
+          <!-- INDICADORES -->
+          <div class="stats-grid">
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon">⌖</span>
+                <span class="mini-label">LOCALIZAÇÃO</span>
+              </div>
+
+              <h3 id="locationValue">Não conectada</h3>
+
+              <p class="muted" id="locationDetail">
+                GPS aguardando integração
+              </p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon battery-icon">▰</span>
+                <span class="mini-label">BATERIA</span>
+              </div>
+
+              <h3 id="batteryValue">85%</h3>
+
+              <div class="progress-track">
+                <div
+                  class="progress-fill"
+                  id="batteryProgress"
+                  style="width:85%">
+                </div>
+              </div>
+
+              <p class="muted">Valor ilustrativo</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top">
+                <span class="stat-icon">⌁</span>
+                <span class="mini-label">CONEXÃO</span>
+              </div>
+
+              <h3 id="connectionValue">Offline</h3>
+
+              <p class="muted">
+                Hardware não conectado
+              </p>
+            </article>
+
+          </div>
+
+          <!-- CADEIRA E ACESSO RÁPIDO -->
+          <div class="content-grid">
+
+            <article class="panel chair-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">HARDWARE</span>
+                  <h3>Cadeira inteligente</h3>
+                </div>
+
+                <span class="live-badge">
+                  PROTÓTIPO
+                </span>
+              </div>
+
+              <div class="chair-visual">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <!-- ILUSTRAÇÃO DA CADEIRA -->
+                <svg
+                  class="wheelchair"
+                  viewBox="0 0 540 370"
+                  role="img"
+                  aria-label="Ilustração de cadeira de rodas futurista">
+
+                  <defs>
+                    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#8eeaff"/>
+                      <stop offset="48%" stop-color="#2199d8"/>
+                      <stop offset="100%" stop-color="#123e72"/>
+                    </linearGradient>
+
+                    <linearGradient id="seat" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#314f77"/>
+                      <stop offset="100%" stop-color="#12233e"/>
+                    </linearGradient>
+
+                    <linearGradient id="tire" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#283a53"/>
+                      <stop offset="100%" stop-color="#080f1c"/>
+                    </linearGradient>
+
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="4" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <!-- RODA TRASEIRA -->
+                  <circle
+                    cx="190" cy="263" r="91"
+                    fill="url(#tire)"
+                    stroke="#3a638e"
+                    stroke-width="9"/>
+
+                  <circle
+                    cx="190" cy="263" r="73"
+                    fill="none"
+                    stroke="#7a9dbd"
+                    stroke-width="2"/>
+
+                  <circle
+                    cx="190" cy="263" r="59"
+                    fill="none"
+                    stroke="#243c5a"
+                    stroke-width="3"/>
+
+                  <!-- RAIOS -->
+                  <g stroke="#52799e" stroke-width="3" opacity=".9">
+                    <line x1="190" y1="190" x2="190" y2="336"/>
+                    <line x1="117" y1="263" x2="263" y2="263"/>
+                    <line x1="138" y1="211" x2="242" y2="315"/>
+                    <line x1="138" y1="315" x2="242" y2="211"/>
+                    <line x1="162" y1="195" x2="218" y2="331"/>
+                    <line x1="122" y1="235" x2="258" y2="291"/>
+                  </g>
+
+                  <circle
+                    cx="190" cy="263" r="13"
+                    fill="#80eaff"
+                    stroke="#1e6c9c"
+                    stroke-width="5"/>
+
+                  <!-- RODA DIANTEIRA -->
+                  <circle
+                    cx="392" cy="315" r="36"
+                    fill="url(#tire)"
+                    stroke="#6689a9"
+                    stroke-width="5"/>
+
+                  <circle
+                    cx="392" cy="315" r="23"
+                    fill="none"
+                    stroke="#315475"
+                    stroke-width="3"/>
+
+                  <circle cx="392" cy="315" r="7" fill="#80eaff"/>
+
+                  <!-- ENCOSTO -->
+                  <path
+                    d="M217 115 L302 115 Q318 115 320 131
+                    L327 205 L250 220 L217 142 Z"
+                    fill="url(#seat)"
+                    stroke="#6e9ec5"
+                    stroke-width="4"/>
+
+                  <path
+                    d="M224 122 L297 122 L304 178 L242 189 Z"
+                    fill="#42678f"
+                    opacity=".55"/>
+
+                  <!-- ASSENTO -->
+                  <path
+                    d="M215 205 L345 205 L330 234 L222 234 Z"
+                    fill="url(#seat)"
+                    stroke="#66c7ef"
+                    stroke-width="4"/>
+
+                  <!-- APOIO DE BRAÇO -->
+                  <path
+                    d="M218 143 L190 143 L182 179"
+                    fill="none"
+                    stroke="url(#frame)"
+                    stroke-width="11"
+                    stroke-linecap="round"/>
+
+                  <path
+                    d="M214 142 L281 142"
+                    fill="none"
+                    stroke="url(#frame)"
+                    stroke-width="11"
+                    stroke-linecap="round"/>
+
+                  <!-- ESTRUTURA METÁLICA -->
+                  <g
+                    fill="none"
+                    stroke="url(#frame)"
+                    stroke-width="11"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+
+                    <path d="M223 220 L190 263 L310 263 L348 315"/>
+                    <path d="M312 226 L276 263 L190 263"/>
+                    <path d="M310 230 L324 273"/>
+                    <path d="M229 223 L254 263"/>
+                    <path d="M216 143 L216 205"/>
+                  </g>
+
+                  <!-- APOIO PARA OS PÉS -->
+                  <path
+                    d="M284 240 L284 281 L339 281"
+                    fill="none"
+                    stroke="url(#frame)"
+                    stroke-width="8"
+                    stroke-linecap="round"/>
+
+                  <path
+                    d="M315 281 L351 281 L357 290 L312 290 Z"
+                    fill="#315a80"
+                    stroke="#6ecdf4"
+                    stroke-width="3"/>
+
+                  <!-- MÓDULO ELETRÔNICO -->
+                  <rect
+                    x="283" y="151"
+                    width="31" height="39"
+                    rx="6"
+                    fill="#0b2039"
+                    stroke="#71e8ff"
+                    stroke-width="3"
+                    filter="url(#glow)"/>
+
+                  <circle cx="298" cy="162" r="4" fill="#71e8ff"/>
+
+                  <path
+                    d="M291 173 H305 M291 180 H301"
+                    stroke="#71e8ff"
+                    stroke-width="2"/>
+
+                  <!-- SENSOR -->
+                  <circle
+                    cx="304" cy="108" r="8"
+                    fill="#6beaff"
+                    filter="url(#glow)"/>
+
+                  <path
+                    d="M304 108 L350 77 L399 77"
+                    fill="none"
+                    stroke="#6beaff"
+                    stroke-width="2"
+                    stroke-dasharray="4 5"/>
+
+                  <text
+                    x="405" y="81"
+                    font-size="12"
+                    fill="#70ddff"
+                    font-family="Inter, sans-serif">
+                    SENSORES
+                  </text>
+
+                  <!-- DETALHES -->
+                  <path
+                    d="M340 236 L358 250"
+                    stroke="#74dfff"
+                    stroke-width="5"
+                    stroke-linecap="round"/>
+
+                  <ellipse
+                    cx="268" cy="342"
+                    rx="170" ry="8"
+                    fill="#35b9ff"
+                    opacity=".14"/>
+
+                </svg>
+              </div>
+
+              <div class="chair-footer">
+                <span>
+                  <span class="status-dot"></span>
+                  Sistema em demonstração
+                </span>
+
+                <button class="text-button" data-page="sobre">
+                  Sobre o hardware ↗
+                </button>
+              </div>
+
+            </article>
+
+            <!-- ACESSO RÁPIDO -->
+            <article class="panel quick-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">ACESSO RÁPIDO</span>
+                  <h3>Central de controle</h3>
+                </div>
+              </div>
+
+              <button class="quick-action" data-page="rotas">
+                <span class="action-icon">⌖</span>
+                <span>
+                  <strong>Planejar rota</strong>
+                  <small>Consultar destinos e trajetos</small>
+                </span>
+                <span class="arrow">↗</span>
+              </button>
+
+              <button class="quick-action" data-page="bateria">
+                <span class="action-icon">▰</span>
+                <span>
+                  <strong>Ver bateria</strong>
+                  <small>Acompanhar nível de energia</small>
+                </span>
+                <span class="arrow">↗</span>
+              </button>
+
+              <button class="quick-action" data-page="historico">
+                <span class="action-icon">◷</span>
+                <span>
+                  <strong>Histórico</strong>
+                  <small>Consultar atividades demonstrativas</small>
+                </span>
+                <span class="arrow">↗</span>
+              </button>
+
+              <div class="notice">
+                <strong>ⓘ Sobre os dados</strong>
+                <p>
+                  GPS, bateria e conexão ainda não estão integrados ao hardware.
+                  Os valores exibidos são ilustrativos.
+                </p>
+              </div>
+
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ================================= -->
+        <!-- TELA 2: ROTAS E GPS               -->
+        <!-- ================================= -->
+
+        <section class="page" id="rotas">
+
+          <div class="section-intro">
+            <span class="eyebrow">NAVEGAÇÃO INTELIGENTE</span>
+            <h2>Rotas e localização</h2>
+            <p class="muted">
+              Organize seus destinos favoritos.
+            </p>
+          </div>
+
+          <div class="content-grid">
+
+            <article class="panel">
+
+              <div class="panel-heading">
+                <h3>Destinos favoritos</h3>
+                <span class="live-badge">EXEMPLOS</span>
+              </div>
+
+              <div class="route-list">
+
+                <button class="route-card" data-route="Casa → Escola">
+                  <span class="route-pin">⌂</span>
+                  <span>
+                    <strong>Casa → Escola</strong>
+                    <small>Trajeto frequente</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+                <button class="route-card" data-route="Escola → Laboratório">
+                  <span class="route-pin">⌘</span>
+                  <span>
+                    <strong>Escola → Laboratório</strong>
+                    <small>Trajeto de estudo</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+                <button class="route-card" data-route="Rota personalizada">
+                  <span class="route-pin">＋</span>
+                  <span>
+                    <strong>Rota personalizada</strong>
+                    <small>Definir um novo trajeto</small>
+                  </span>
+                  <span class="arrow">→</span>
+                </button>
+
+              </div>
+
+              <div class="field-group">
+                <label for="origin">Ponto de partida</label>
+                <input
+                  id="origin"
+                  type="text"
+                  placeholder="Digite a origem">
+              </div>
+
+              <div class="field-group">
+                <label for="destination">Destino</label>
+                <input
+                  id="destination"
+                  type="text"
+                  placeholder="Digite o destino">
+              </div>
+
+              <button class="primary-button" id="createRoute">
+                Consultar rota
+              </button>
+
+              <p class="muted small" id="routeMessage" aria-live="polite">
+                A consulta atual é demonstrativa; nenhum trajeto real foi calculado.
+              </p>
+
+            </article>
+
+            <!-- MAPA ILUSTRATIVO -->
+            <article class="panel map-panel">
+
+              <div class="panel-heading">
+                <div>
+                  <span class="eyebrow">GPS</span>
+                  <h3>Área de navegação</h3>
+                </div>
+
+                <span class="live-badge">SIMULAÇÃO</span>
+              </div>
+
+              <div class="map-placeholder">
+                <div class="map-grid"></div>
+
+                <div class="map-road road-a"></div>
+                <div class="map-road road-b"></div>
+                <div class="map-road road-c"></div>
+                <div class="map-road road-d"></div>
+
+                <div class="map-route"></div>
+                <div class="map-marker marker-a">A</div>
+                <div class="map-marker marker-b">B</div>
+
+                <div class="map-caption">
+                  <strong>Mapa demonstrativo</strong>
+                  <small>Integração com GPS pendente</small>
+                </div>
+              </div>
+
+              <div class="map-info">
+                <span class="status-dot"></span>
+                Localização real indisponível
+              </div>
+
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ================================= -->
+        <!-- TELA 3: BATERIA                   -->
+        <!-- ================================= -->
+
+        <section class="page" id="bateria">
+
+          <div class="section-intro">
+            <span class="eyebrow">GERENCIAMENTO DE ENERGIA</span>
+            <h2>Central de bateria</h2>
+            <p class="muted">
+              Visualize os indicadores de energia do protótipo.
+            </p>
+          </div>
+
+          <div class="battery-layout">
+
+            <article class="panel battery-main">
+
+              <span class="eyebrow">
+                NÍVEL ATUAL ILUSTRATIVO
+              </span>
+
+              <div class="big-battery">
+                <div class="battery-terminal"></div>
+                <div class="big-battery-inner" id="bigBatteryFill"></div>
+              </div>
+
+              <h2 id="bigBatteryValue">85%</h2>
+
+              <p class="muted">
+                Nível demonstrativo — não vem de um sensor real.
+              </p>
+
+              <div class="progress-track large">
+                <div
+                  class="progress-fill"
+                  id="batteryProgressLarge"
+                  style="width:85%">
+                </div>
+              </div>
+
+              <span class="live-badge">DADO SIMULADO</span>
+
+            </article>
+
+            <article class="panel">
+
+              <div class="panel-heading">
+                <h3>Informações de energia</h3>
+              </div>
+
+              <div class="detail-row">
+                <span>Nível de carga</span>
+                <strong id="batteryDetail">85%</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Estado de carregamento</span>
+                <strong>Não detectado</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Autonomia estimada</span>
+                <strong>Não calculada</strong>
+              </div>
+
+              <div class="detail-row">
+                <span>Sensor de bateria</span>
+                <strong>Pendente</strong>
+              </div>
+
+              <div class="notice">
+                Para obter dados reais, o hardware deverá enviar o nível da bateria
+                para o backend por uma interface de comunicação.
+              </div>
+
+            </article>
+
+          </div>
+        </section>
+
+        <!-- ================================= -->
+        <!-- TELA 4: HISTÓRICO                 -->
+        <!-- ================================= -->
+
+        <section class="page" id="historico">
+
+          <div class="section-intro">
+            <span class="eyebrow">REGISTROS DE MOBILIDADE</span>
+            <h2>Histórico de trajetos</h2>
+            <p class="muted">
+              Exemplos de como as atividades poderão aparecer.
+            </p>
+          </div>
+
+          <article class="panel">
+
+            <div class="panel-heading">
+              <h3>Atividades recentes</h3>
+              <span class="live-badge">DADOS FICTÍCIOS</span>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Trajeto</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Casa → Escola</td>
+                    <td>Exemplo</td>
+                    <td><span class="table-status">Demonstrativo</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Escola → Laboratório</td>
+                    <td>Exemplo</td>
+                    <td><span class="table-status">Demonstrativo</span></td>
+                  </tr>
+
+                  <tr>
+                    <td>Rota personalizada</td>
+                    <td>Exemplo</td>
+                    <td><span class="table-status">Demonstrativo</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="notice">
+              Este histórico não representa deslocamentos reais.
+              O registro real exigirá persistência de dados no backend e banco de dados.
+            </div>
+
+          </article>
+        </section>
+
+        <!-- ================================= -->
+        <!-- TELA 5: QUEM SOMOS                -->
+        <!-- ================================= -->
+
+        <section class="page" id="sobre">
+
+          <div class="about-hero">
+
+            <span class="brand-symbol big-brand">V</span>
+
+            <span class="eyebrow">
+              TECNOLOGIA • ACESSIBILIDADE • AUTONOMIA
+            </span>
+
+            <h2>Conheça o VERTEX</h2>
+
+            <p>
+              Uma proposta de mobilidade assistiva que explora a interação
+              entre interfaces cérebro-máquina e tecnologia.
+            </p>
+
+          </div>
+
+          <div class="content-grid about-grid">
+
+            <article class="panel">
+
+              <span class="eyebrow">NOSSA MISSÃO</span>
+
+              <h3>Mais autonomia, novas possibilidades.</h3>
+
+              <p class="muted">
+                O projeto acadêmico investiga o desenvolvimento de uma cadeira
+                de rodas controlada por ondas cerebrais através de uma interface
+                cérebro-máquina, com uma plataforma para acompanhar informações
+                e facilitar a experiência de uso.
+              </p>
+
+            </article>
+
+            <article class="panel">
+
+              <span class="eyebrow">TECNOLOGIAS DO PROJETO</span>
+
+              <div class="tech-list">
+                <span>Hardware</span>
+                <span>Interface Web</span>
+                <span>Mobile</span>
+                <span>Backend</span>
+                <span>Banco de dados</span>
+                <span>MQTT / WebSocket</span>
+                <span>HTTP / JSON</span>
+              </div>
+
+            </article>
+
+          </div>
+
+          <!-- EQUIPE -->
+          <article class="panel team-panel">
+
+            <span class="eyebrow">DESENVOLVIMENTO ACADÊMICO</span>
+
+            <h3>Equipe do projeto</h3>
+
+            <p class="muted">Integrantes do TCC</p>
+
+            <div class="team-grid">
+
+              <div class="team-member">
+                <span>BM</span>
+                <strong>Bryan Macedo</strong>
+                <small>Desenvolvimento</small>
+              </div>
+
+              <div class="team-member">
+                <span>RB</span>
+                <strong>Raphael Brandão</strong>
+                <small>Equipe do projeto</small>
+              </div>
+
+              <div class="team-member">
+                <span>G</span>
+                <strong>Giovana</strong>
+                <small>Equipe do projeto</small>
+              </div>
+
+              <div class="team-member">
+                <span>V</span>
+                <strong>Victoria</strong>
+                <small>Equipe do projeto</small>
+              </div>
+
+              <div class="team-member">
+                <span>MM</span>
+                <strong>Matheus Masson</strong>
+                <small>Equipe do projeto</small>
+              </div>
+
+            </div>
+
+            <p class="muted small">
+              Ajuste as atribuições, os nomes completos e a instituição
+              conforme a versão oficial do trabalho.
+            </p>
+
+          </article>
+
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer class="footer">
+          <span>VERTEX © 2026 • Projeto acadêmico</span>
+          <span>Mobilidade inteligente em desenvolvimento</span>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- NOTIFICAÇÕES -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
